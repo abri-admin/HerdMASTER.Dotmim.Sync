@@ -13,10 +13,10 @@
 		<AnalysisLevel>none</AnalysisLevel>
 		<RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
 		<RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
-		<Version>1.0.0.12</Version>
+		<Version>1.0.0.13</Version>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="BenchmarkDotNet" Version="0.14.0" />
+		<PackageReference Include="BenchmarkDotNet" Version="0.15.6" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -26,7 +26,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Update="DotNet.ReproducibleBuilds" Version="1.2.25">
+	  <PackageReference Update="DotNet.ReproducibleBuilds" Version="1.2.39">
 	    <PrivateAssets>all</PrivateAssets>
 	    <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
 	  </PackageReference>
