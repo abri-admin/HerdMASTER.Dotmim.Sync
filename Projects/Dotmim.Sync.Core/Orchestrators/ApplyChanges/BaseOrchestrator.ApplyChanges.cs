@@ -891,14 +891,6 @@ namespace Dotmim.Sync
                             foreach (var row in failedRows)
                                 await localSerializerWriter.WriteRowToFileAsync(row, schemaChangesTable).ConfigureAwait(false);
 
-                    if (failedRows.Count <= 0 && File.Exists(lastSyncErrorsBpiFullPath))
-                    {
-                        if (localSerializerWriter.IsOpen)
-                            await localSerializerWriter.CloseFileAsync().ConfigureAwait(false);
-
-                        File.Delete(lastSyncErrorsBpiFullPath);
-                    }
-
                             await localSerializerWriter.CloseFileAsync().ConfigureAwait(false);
                             await localSerializerWriter.DisposeAsync().ConfigureAwait(false);
                             localSerializerWriter = null;
