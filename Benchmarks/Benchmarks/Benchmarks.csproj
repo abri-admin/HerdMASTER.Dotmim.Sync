@@ -13,7 +13,7 @@
 		<AnalysisLevel>none</AnalysisLevel>
 		<RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild>
 		<RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
-		<Version>1.0.0.13</Version>
+		<Version>1.0.0.14</Version>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="BenchmarkDotNet" Version="0.15.6" />

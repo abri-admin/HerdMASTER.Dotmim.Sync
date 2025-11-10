@@ -323,7 +323,7 @@
       "HerdMASTER.Dotmim.Sync.SqlServer": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "Microsoft.Data.SqlClient": "[6.1.2, )"
         }
       }
@@ -643,7 +643,7 @@
       "HerdMASTER.Dotmim.Sync.SqlServer": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "Microsoft.Data.SqlClient": "[6.1.2, )"
         }
       }

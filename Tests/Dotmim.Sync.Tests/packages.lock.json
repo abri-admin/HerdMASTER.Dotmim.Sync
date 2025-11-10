@@ -646,48 +646,48 @@
       "HerdMASTER.Dotmim.Sync.MariaDB": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "MySqlConnector": "[2.4.0, )"
         }
       },
       "HerdMASTER.Dotmim.Sync.MySql": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "MySqlConnector": "[2.4.0, )"
         }
       },
       "HerdMASTER.Dotmim.Sync.PostgreSql": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "Npgsql": "[9.0.4, )"
         }
       },
       "HerdMASTER.Dotmim.Sync.Sqlite": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "Microsoft.Data.Sqlite": "[9.0.10, )"
         }
       },
       "HerdMASTER.Dotmim.Sync.SqlServer": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "Microsoft.Data.SqlClient": "[6.1.2, )"
         }
       },
       "HerdMASTER.Dotmim.Sync.SqlServer.ChangeTracking": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.SqlServer": "[1.0.0.13, )"
+          "HerdMASTER.Dotmim.Sync.SqlServer": "[1.0.0.14, )"
         }
       },
       "HerdMASTER.Dotmim.Sync.Web.Client": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "Microsoft.Extensions.Features": "[9.0.10, )",
           "Microsoft.Net.Http.Headers": "[8.0.12, )"
         }
@@ -695,7 +695,7 @@
       "HerdMASTER.Dotmim.Sync.Web.Server": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Web.Client": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Web.Client": "[1.0.0.14, )",
           "System.Text.Json": "[9.0.10, )"
         }
       }
@@ -1334,48 +1334,48 @@
       "HerdMASTER.Dotmim.Sync.MariaDB": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "MySqlConnector": "[2.4.0, )"
         }
       },
       "HerdMASTER.Dotmim.Sync.MySql": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "MySqlConnector": "[2.4.0, )"
         }
       },
       "HerdMASTER.Dotmim.Sync.PostgreSql": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "Npgsql": "[9.0.2, )"
         }
       },
       "HerdMASTER.Dotmim.Sync.Sqlite": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "Microsoft.Data.Sqlite": "[9.0.10, )"
         }
       },
       "HerdMASTER.Dotmim.Sync.SqlServer": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "Microsoft.Data.SqlClient": "[6.1.2, )"
         }
       },
       "HerdMASTER.Dotmim.Sync.SqlServer.ChangeTracking": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.SqlServer": "[1.0.0.13, )"
+          "HerdMASTER.Dotmim.Sync.SqlServer": "[1.0.0.14, )"
         }
       },
       "HerdMASTER.Dotmim.Sync.Web.Client": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "Microsoft.Extensions.Features": "[9.0.1, )",
           "Microsoft.Net.Http.Headers": "[9.0.2, )"
         }
@@ -1383,7 +1383,7 @@
       "HerdMASTER.Dotmim.Sync.Web.Server": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Web.Client": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Web.Client": "[1.0.0.14, )",
           "System.Text.Json": "[9.0.10, )"
         }
       }

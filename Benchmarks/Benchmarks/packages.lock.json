@@ -521,14 +521,14 @@
       "HerdMASTER.Dotmim.Sync.Sqlite": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "Microsoft.Data.Sqlite": "[9.0.10, )"
         }
       },
       "HerdMASTER.Dotmim.Sync.SqlServer": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "Microsoft.Data.SqlClient": "[6.1.2, )"
         }
       }

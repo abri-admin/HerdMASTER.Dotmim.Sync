@@ -142,7 +142,7 @@
       "HerdMASTER.Dotmim.Sync.Web.Client": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "Microsoft.Extensions.Features": "[9.0.10, )",
           "Microsoft.Net.Http.Headers": "[8.0.12, )"
         }
@@ -269,7 +269,7 @@
       "HerdMASTER.Dotmim.Sync.Web.Client": {
         "type": "Project",
         "dependencies": {
-          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.13, )",
+          "HerdMASTER.Dotmim.Sync.Core": "[1.0.0.14, )",
           "Microsoft.Extensions.Features": "[9.0.1, )",
           "Microsoft.Net.Http.Headers": "[9.0.2, )"
         }
