@@ -774,7 +774,6 @@ namespace Dotmim.Sync
                 return;
 
             LocalJsonSerializer localSerializerReader = null;
-
             LocalJsonSerializer localSerializerWriter = null;
 
             try
@@ -819,18 +818,15 @@ namespace Dotmim.Sync
                     // Read already present lines
                     var lastSyncErrorsBpiFullPath = lastSyncErrorsBatchInfo.GetBatchPartInfoFullPath(tableBpis.ToList()[0]);
 
+                    // Read the existing error file and dispose immediately to release file lock
                     using (var localFailedRowsSerializerReader = new LocalJsonSerializer(this, context))
                     {
                         var syncRows = localFailedRowsSerializerReader.GetRowsFromFile(lastSyncErrorsBpiFullPath, schemaChangesTable);
                         failedRows.AddRange(syncRows);
                     }
+                    // File handle is now fully released
 
                     localSerializerReader = new LocalJsonSerializer(this, context);
-
-                    localSerializerWriter = new LocalJsonSerializer(this, context);
-
-                    // Open again the same file
-                    await localSerializerWriter.OpenFileAsync(lastSyncErrorsBpiFullPath, schemaChangesTable, SyncRowState.None).ConfigureAwait(false);
 
                     foreach (var batchPartInfo in bpiTables)
                     {
@@ -859,11 +855,84 @@ namespace Dotmim.Sync
                             break;
                     }
 
-                    foreach (var row in failedRows)
-                        await localSerializerWriter.WriteRowToFileAsync(row, schemaChangesTable).ConfigureAwait(false);
+                    // If no failed rows remain, delete the file
+                    if (failedRows.Count <= 0)
+                    {
+                        if (File.Exists(lastSyncErrorsBpiFullPath))
+                        {
+                            // Add retry logic for file deletion in case of transient locks
+                            var retryCount = 0;
+                            const int maxRetries = 3;
+                            while (retryCount < maxRetries)
+                            {
+                                try
+                                {
+                                    File.Delete(lastSyncErrorsBpiFullPath);
+                                    break;
+                                }
+                                catch (IOException) when (retryCount < maxRetries - 1)
+                                {
+                                    retryCount++;
+                                    await Task.Delay(100 * retryCount, cancellationToken).ConfigureAwait(false);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // Write remaining failed rows to a temporary file first, then replace
+                        var tempFilePath = lastSyncErrorsBpiFullPath + ".tmp";
+                        
+                        try
+                        {
+                            localSerializerWriter = new LocalJsonSerializer(this, context);
+                            await localSerializerWriter.OpenFileAsync(tempFilePath, schemaChangesTable, SyncRowState.None).ConfigureAwait(false);
 
-                    if (failedRows.Count <= 0 && File.Exists(lastSyncErrorsBpiFullPath))
-                        File.Delete(lastSyncErrorsBpiFullPath);
+                            foreach (var row in failedRows)
+                                await localSerializerWriter.WriteRowToFileAsync(row, schemaChangesTable).ConfigureAwait(false);
+
+                            await localSerializerWriter.CloseFileAsync().ConfigureAwait(false);
+                            await localSerializerWriter.DisposeAsync().ConfigureAwait(false);
+                            localSerializerWriter = null;
+
+                            // Replace the original file with the temp file atomically
+                            // Add retry logic for file operations in case of transient locks
+                            var retryCount = 0;
+                            const int maxRetries = 3;
+                            while (retryCount < maxRetries)
+                            {
+                                try
+                                {
+                                    if (File.Exists(lastSyncErrorsBpiFullPath))
+                                        File.Delete(lastSyncErrorsBpiFullPath);
+                                    
+                                    File.Move(tempFilePath, lastSyncErrorsBpiFullPath);
+                                    break;
+                                }
+                                catch (IOException) when (retryCount < maxRetries - 1)
+                                {
+                                    retryCount++;
+                                    await Task.Delay(100 * retryCount, cancellationToken).ConfigureAwait(false);
+                                }
+                            }
+                        }
+                        finally
+                        {
+                            // Clean up temp file if it still exists
+                            if (File.Exists(tempFilePath))
+                            {
+                                try
+                                {
+                                    File.Delete(tempFilePath);
+                                }
+                                catch (IOException)
+                                {
+                                    // Log but don't throw - temp file will be cleaned up eventually
+                                    this.Logger.LogWarning("[InternalApplyCleanErrorsAsync]. Could not delete temp file {TempFilePath}", tempFilePath);
+                                }
+                            }
+                        }
+                    }
 
                     this.Logger.LogInformation("[InternalApplyCleanErrorsAsync]. schemaTable {SchemaTableName} failedRows count {FailedRowsCount}", schemaTable.GetFullName(), failedRows.Count);
                 }

@@ -14,7 +14,7 @@
 	
 	<PropertyGroup>
 		<AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
-		<Version>1.0.0.11</Version>
+		<Version>1.0.0.12</Version>
 		<PublishAot>True</PublishAot>
 	</PropertyGroup>
 	<ItemGroup>
