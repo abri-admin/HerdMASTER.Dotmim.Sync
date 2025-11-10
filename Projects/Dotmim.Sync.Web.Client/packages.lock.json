@@ -150,9 +150,9 @@
       },
       "Microsoft.Extensions.Features": {
         "type": "Direct",
-        "requested": "[9.0.10, )",
-        "resolved": "9.0.10",
-        "contentHash": "/94E6QLu+0jOWRzcaq80a0/7EmOzuwDWDNOyVYezMTeX4BzhXCfAsUrZi9Lg+4VP2J+21sTa+AaCgMdXiG/cpw=="
+        "requested": "[9.0.1, )",
+        "resolved": "9.0.1",
+        "contentHash": "GU+tXhB+m9brx7YZwpzlZ57FVevfaQgZTSrjbQk5o9tb2QWbpzeUtJDPPG8Cav0OrTPDG+7zrcrGL69Rwv8Gzg=="
       },
       "Microsoft.Net.Http.Headers": {
         "type": "Direct",
